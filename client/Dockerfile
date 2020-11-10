@@ -4,10 +4,16 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-EXPOSE 3000
 
+COPY package*.json ./
+
+RUN npm install
+RUN npm install react-scripts@4.0.0 -g
+COPY . .
+
+
+EXPOSE 3000
+EXPOSE 9009
 CMD [ "npm", "start" ]
 
-EXPOSE 6006
 
-CMD ["yarn", "storybook"]
