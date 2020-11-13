@@ -12,9 +12,8 @@ function UsersContainer(props) {
   useEffect(() => {
     initApp();
   }, []);
-
   function initApp() {
-    axios.get('http://localhost:5000/users')
+    axios.get('http://max_server:5000/users')
       .then(response => {
         setUsers(response.data);
         setLoading(true);

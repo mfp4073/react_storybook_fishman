@@ -13,7 +13,7 @@ COPY . .
 
 
 EXPOSE 3000
-EXPOSE 9009
+EXPOSE 6006
 CMD [ "npm", "start" ]
 
 

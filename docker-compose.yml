@@ -1,33 +1,36 @@
 version: "3"
 services:
     frontend:
-        container_name: max_web
         build:
             context: ./client
-            # dockerfile: Dockerfile
-        # image: akinney/max_web
         ports:
             - "3000:3000"
-        # volumes:
-        #     - ./client:/usr/src/app
+        container_name: max_web
+        stdin_open: true
+        volumes:
+            - ./client:/usr/src/app/client
+            - /usr/src/app/client/node_modules
+        # image: akinney/max_web
     backend:
-        container_name: max_server
         build:
             context: ./server
-            # dockerfile: Dockerfile
-        # image: akinney/max_server
         ports:
             - "5000:5000"
-        # volumes:
-        #     - ./server:/usr/src/app
+        container_name: max_server
+        volumes:
+            - ./server:/usr/src/app/server
+            - /usr/src/app/server/node_modules
+        # image: akinney/max_server
     storybook:
         container_name: max_stories
         build:
             context: ./client
             # dockerfile: Dockerfile
         # image: akinney/max_stories
+        command: npm run storybook
+        init: true
         ports:
-            - "9009:9009"
+            - "6006:6006"
         # volumes:
         #     - ./client:/usr/src/app
 
