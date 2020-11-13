@@ -13,7 +13,7 @@ function UsersContainer(props) {
     initApp();
   }, []);
   function initApp() {
-    axios.get('http://max_server:5000/users')
+    axios.get('http://localhost:5000/users')
       .then(response => {
         setUsers(response.data);
         setLoading(true);

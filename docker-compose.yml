@@ -4,7 +4,7 @@ services:
         build:
             context: ./client
         ports:
-            - "3000:3000"
+            - "${CLIENT_PORT}:${CLIENT_PORT}"
         container_name: max_web
         stdin_open: true
         volumes:
@@ -15,7 +15,7 @@ services:
         build:
             context: ./server
         ports:
-            - "5000:5000"
+            - "${SERVER_PORT}:${SERVER_PORT}"
         container_name: max_server
         volumes:
             - ./server:/usr/src/app/server
@@ -30,7 +30,7 @@ services:
         command: npm run storybook
         init: true
         ports:
-            - "6006:6006"
+            - "${STORIES_PORT}:${STORIES_PORT}"
         # volumes:
         #     - ./client:/usr/src/app
 
