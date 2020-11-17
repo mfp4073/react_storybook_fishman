@@ -7,8 +7,8 @@ import './header.css';
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
   <header>
     <div className="wrapper">
+      <h1>Fishman Assignment</h1>
       <div>
-        <h1>Fishman</h1>
       </div>
       <div className="button-panel">
         {user ? (
