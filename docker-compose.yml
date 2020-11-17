@@ -12,7 +12,6 @@ services:
             - /usr/src/app/node_modules
         depends_on:
             - server
-        # image: akinney/max_web
     server:
         build:
             context: ./server
@@ -21,13 +20,10 @@ services:
         container_name: max_server
         volumes:
             - ./server:/usr/src/app/server
-        # image: akinney/max_server
     storybook:
         container_name: max_stories
         build:
             context: ./client
-            # dockerfile: Dockerfile
-        # image: akinney/max_stories
         command: npm run storybook
         ports:
             - "${STORIES_PORT}:${STORIES_PORT}"

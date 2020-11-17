@@ -25,10 +25,8 @@ function UsersContainer(props) {
   }
 
   if (loading) {
-    console.log("loading: ", users)
     renderUsers(users);
   } else {
-    console.log("not loading: ", users)
     renderLoader();
   }
 
